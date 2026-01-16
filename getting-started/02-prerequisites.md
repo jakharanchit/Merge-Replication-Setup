@@ -52,8 +52,8 @@ Test-NetConnection -ComputerName [PublisherIP] -Port 1433
   ```
 
 ### Version Compatibility
-- [ ] Publisher version: _________________ (SQL Server Standard/Enterprise)
-- [ ] Subscriber version: _________________ (must be same or higher)
+- [ ] Publisher running SQL Server Standard or Enterprise edition
+- [ ] Subscriber version is same or higher than Publisher
 - [ ] Replication feature installed on all instances
 
 **Verification Query:**
@@ -68,7 +68,7 @@ SELECT SERVERPROPERTY('IsFullTextInstalled');
 ## 3. Service Accounts
 
 ### Dedicated Account Created
-- [ ] Windows account created: `________________` (e.g., `sql_repl_agent`)
+- [ ] Dedicated Windows account created (e.g., `sql_repl_agent`)
 - [ ] Password set to **never expire**
 - [ ] Account exists on Publisher
 - [ ] Account has **Log on as a service** right
@@ -93,8 +93,8 @@ New-LocalUser -Name "sql_repl_agent" -Password $Password -PasswordNeverExpires
 ## 4. Snapshot Folder
 
 ### Folder Configuration
-- [ ] Folder created on Publisher: `________________` (e.g., `C:\ReplData`)
-- [ ] Folder is **shared** with share name: `________________` (e.g., `ReplData`)
+- [ ] Folder created on Publisher (e.g., `C:\ReplData`)
+- [ ] Folder is **shared** with a share name (e.g., `ReplData`)
 - [ ] UNC path works: `\\[PublisherName]\[ShareName]`
 
 
@@ -122,12 +122,12 @@ New-LocalUser -Name "sql_repl_agent" -Password $Password -PasswordNeverExpires
 ## 5. Storage Requirements
 
 ### Publisher
-- [ ] Free disk space for snapshot: _________ GB (minimum 2x database size)
+- [ ] Free disk space for snapshot (minimum 2x database size)
 - [ ] Database files are not on system drive (recommended)
 - [ ] Transaction log has adequate space for replication tracking
 
 ### Subscriber
-- [ ] Free disk space: _________ GB (minimum 1.5x expected data size)
+- [ ] Free disk space available (minimum 1.5x expected data size)
 - [ ] SQL Express database size limit: **10 GB** (plan accordingly)
 
 ---
@@ -135,7 +135,7 @@ New-LocalUser -Name "sql_repl_agent" -Password $Password -PasswordNeverExpires
 ## 6. Time Synchronization
 
 - [ ] All servers synchronized to same NTP source
-- [ ] Time difference between servers: _________ (must be <5 minutes)
+- [ ] Time difference between servers is less than 5 minutes
 - [ ] Time zone settings are consistent or properly configured
 
 **Verification:**
