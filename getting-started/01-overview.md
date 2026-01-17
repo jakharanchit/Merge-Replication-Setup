@@ -4,13 +4,6 @@
 
 **Merge Replication** is a SQL Server feature that enables bidirectional data synchronization between a central database (Publisher) and multiple remote databases (Subscribers). Changes made at any node propagate to all other nodes, making it ideal for distributed environments where connectivity may be intermittent.
 
-### Key Use Cases
-
-- **Distributed Data Entry**: Multiple locations capture data locally, sync periodically
-- **Offline-Capable Applications**: Laptops/tablets work offline, sync when connected
-- **Geographic Distribution**: Branch offices maintain local copies, sync with headquarters
-- **Load Distribution**: Read operations distributed across subscribers
-
 ---
 
 ## Architecture
@@ -97,49 +90,10 @@ graph TB
 
 ---
 
-## Deployment Timeline
-
-```mermaid
-gantt
-    title Merge Replication Deployment
-    dateFormat  YYYY-MM-DD
-    section Preparation
-    Environment Setup           :prep1, 2024-01-01, 2d
-    Prerequisites Verification  :prep2, after prep1, 1d
-    section Configuration
-    Publisher Setup             :conf1, after prep2, 1d
-    Subscriber Setup            :conf2, after conf1, 1d
-    section Validation
-    Sync Testing                :test1, after conf2, 1d
-    Stress Testing              :test2, after test1, 1d
-```
-
-| Phase | Duration | Activities |
-|-------|----------|------------|
-| Preparation | 2-3 days | Network config, firewall rules, service accounts |
-| Configuration | 1-2 days | Publisher, Distributor, Subscriber setup |
-| Validation | 1-2 days | Bidirectional sync, offline resiliency, conflict tests |
-| **Total** | **4-7 days** | Varies based on environment complexity |
-
----
-
-## Decision Matrix
-
-### When to Use Merge Replication
-
-| Scenario | Recommended? |
-|----------|--------------|
-| Bidirectional sync needed | ✅ Yes |
-| Subscribers go offline frequently | ✅ Yes |
-| Multiple locations edit same data | ✅ Yes |
-| Real-time sync required (<1 sec) | ❌ No (use Transactional) |
-| One-way data flow only | ❌ No (use Snapshot/Transactional) |
-| Subscribers are SQL Express | ✅ Yes (use Push subscriptions) |
-
----
-
 ## Next Steps
 
 1. **[Prerequisites Checklist](02-prerequisites.md)** → Verify environment readiness
 2. **[Implementation Guide](../setup/01-implementation-guide.md)** → Step-by-step setup
 3. **[Glossary](03-glossary.md)** → Understand terminology
+
+---
