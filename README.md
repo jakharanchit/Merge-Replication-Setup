@@ -10,14 +10,6 @@
 
 This repository provides complete documentation for setting up **bidirectional data synchronization** between a central SQL Server (Publisher/Hub) and multiple distributed SQL Server instances (Subscribers/Spokes), including SQL Server Express editions.
 
-### Key Features
-
-- ✅ **Step-by-step implementation guides** with PowerShell automation
-- ✅ **Hub-and-Spoke architecture** optimized for SQL Server Express subscribers
-- ✅ **Offline resilience** - changes sync automatically when reconnected
-- ✅ **Conflict resolution** with configurable policies
-- ✅ **Production-ready** security and maintenance procedures
-
 ---
 
 ## 📖 Documentation
@@ -137,9 +129,3 @@ Encountering issues? Start here:
 ➡️ See full [Troubleshooting Guide](operations/02-troubleshooting-guide.md)
 
 ---
-
-##  Support
-
-- 📖 Check the [FAQ](reference/02-faq.md) for common questions
-- 🐛 Open an [Issue](../../issues) for bugs or feature requests
-- 💬 Start a [Discussion](../../discussions) for general questions
